@@ -1,13 +1,12 @@
 .App {
   min-height: 100vh;
   padding-top: 10%;
-  background-image: url("https://uploads-ssl.webflow.com/5a9ee6416e90d20001b20038/6289f05dd53df30842525239_yellow-gradient.png");
- /* background-image: url("https://img.freepik.com/premium-photo/top-view-notebooks-accessories-studying-library-school-yellow-background-idea-education_109549-3281.jpg");*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 8%;
   height: 100%;
+  background-color: rgb(255, 255, 102);
 }
 
 .App-logo {

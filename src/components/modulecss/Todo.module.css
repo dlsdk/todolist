@@ -1,44 +1,42 @@
 .title{
     text-align: center;
     color: rgb(4, 110, 124);
-    font-family: 'Caveat', cursive;
-    font-weight: 900;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
 }
 
 .input_first{
     background-color: transparent;
     border: none;
     border-bottom:3px solid rgb(4, 110, 124);
-    border-radius: 10%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
     color:rgb(4, 110, 124);
-    font-family: 'Caveat', cursive;
-
-
+    font-family: 'PT Serif', serif;
 }
 
 .buttons{
-    background-color: transparent;
-    border: 1px solid rgb(4, 110, 124);
+   background-color:rgb(4, 110, 124);
+    color:rgb(254, 254, 127);
     border-radius: 10%;
-    color:rgb(4, 110, 124);
-    font-family: 'Caveat', cursive;
+    border: 1px solid rgb(4, 110, 124);
+    font-family: 'PT Serif', serif;
     font-size: 1rem;
 }
 .buttons:hover{
-    background-color:rgb(4, 110, 124);
-    color:yellow;
+     background-color: transparent;
+    color:rgb(4, 110, 124);
 }
-
-
 .buttons:disabled,
 button[disabled]{
   border: 1px solid #999999;
   background-color: rgb(84, 92, 93);;
   color: rgb(162, 164, 164);
 }
+
 label{
     color:rgb(4, 110, 124);
-    font-family: 'Caveat', cursive;
+    font-family: 'PT Serif', serif;
     font-size: 1.3rem;
 }
 
@@ -49,39 +47,50 @@ ul{
     overflow-y: auto;
     overflow-x: auto;
     max-height: 20rem;
-    font-family: 'Caveat', cursive;
+    font-family: 'PT Serif', serif;
     font-size: 1.5rem;
-  
+}
+
+ul::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: transparent;  
 }
 
 
-
-ul::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background: transparent;  
-  }
-
-
-  ul::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.4);
+ul::-webkit-scrollbar-thumb {
+    background-color: rgba(4, 110, 124, 0.4);
     border-radius: 4px;
     width: 5px;
-  }
+}
 
 
-
-
-  ::-webkit-scrollbar-corner {
+ul::-webkit-scrollbar-corner {
     background: rgba(0,0,0,0);
-  }
-  
- /* ul::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 50%;
-  }*/
-  
+}
+
 li{
     padding: 2px;
     color:rgb(4, 110, 124);
 }
+
+input[type="checkbox"] {
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: rgb(4, 110, 124);
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 0.14rem solid currentColor;
+    border-radius: 50%;
+    appearance: none;
+    outline: 2px solid currentColor;
+    outline-offset: max(0px, 0.15rem);
+  }
+  
+  
+  input[type="checkbox"]:checked {
+    background-color: currentColor;outline: 2.2px solid currentColor;
+    outline-offset: 1px;
+    }
+

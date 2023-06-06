@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Actions from '../redux/actions';
 import style from "./modulecss/Todo.module.css"
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function Todo(){
 
@@ -50,11 +52,11 @@ export default function Todo(){
       
         <div className='container'>
           <div className={style.title}>
-            <h1>TODO LIST</h1>
+            <h1>TODO LIST</h1><FontAwesomeIcon style={{color:"rgb(4, 110, 124);"}}  size='2x' icon={faCircleCheck} bounce />
           </div>
           <div className='list'>
             <form onSubmit={(e) => {  e.preventDefault(); dispatch(Actions.todoActions.ADD_TO_LIST(content))}}>
-              <div className='input-area d-flex justify-content-between'>
+              <div className='d-flex justify-content-between'>
                 <div>
                   <input className={style.input_first}  value={content} onChange={(e) => dispatch(Actions.todoActions.ADD_TO_CONTENT(e.target.value))}></input>  
                   <button className={style.buttons} type='submit'>INCLUDE</button>
@@ -66,13 +68,11 @@ export default function Todo(){
               </div>
             </form>
             <div className='list-elements d-flex justify-content-center'>
-              <ul style={{listStyleType:'none'}}>
+              <ul style={{listStyleType: check.checked ? 'none' : 'disc'}}>
                 {list.filter((el) => el.includes(filtcontent)).map((el, index) => (
-                  <>
                     <li key={index}>{check.checked &&
                       <input style={{marginRight:"1rem"}} onChange={() => handleCheck(el)} type="checkbox" checked={selectedItems.includes(el)} />}{el}
                     </li>
-                  </>
                 ))}
               </ul>
             </div>
@@ -81,7 +81,6 @@ export default function Todo(){
                 <>
                   <button className={style.buttons} disabled={list.length === 0} onClick={selectAll}>Select All</button>
                   <button className={style.buttons}  disabled={selectedItems.length === 0}  onClick={(e) => {dispatch(Actions.todoActions.DELETE_SELECTED(list.filter((el) => !selectedItems.includes(el)))); setSelectedItems([])}}>Delete Selected</button>
-          
                 </>
               }
                   <button className={style.buttons} onClick={giveup}>{buttonText}</button>

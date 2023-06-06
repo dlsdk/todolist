@@ -15,10 +15,6 @@ const todoReducer = (state=INITIAL_STATE,action) =>{
            content: action.payload
           };
         case todoActionType.todo.ADD_TO_LIST:
-          if (!action.payload.trim()) {
-            console.log("CONTENT : " + action.payload);
-            return state; // Sadece boşluklardan oluşuyorsa, eklemeyi engelle
-          }
           return {
            ...state,
            content: '',

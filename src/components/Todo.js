@@ -24,17 +24,13 @@ export default function Todo(){
     }
 
     const selectAll=() =>{
-     
-      if (check.allcheck) {
+      if (check.allcheck) 
         setSelectedItems([]);
-        setCheck({...check,allcheck:false});
-      }
-      else {
-        setSelectedItems([...selectedItems,...list]);
-        setCheck({...check,allcheck:true});
-      } 
-
+      else 
+        setSelectedItems([...list]); 
+      setCheck({...check,allcheck:!check.allcheck});
     }
+
     const giveup = () => {
       setCheck({...check,checked:!check.checked});
       if (check.allcheck)
@@ -48,6 +44,13 @@ export default function Todo(){
       }
     }
 
+    const sub = (e) =>{ 
+      e.preventDefault(); 
+      if (!content.trim()) 
+          return;
+      dispatch(Actions.todoActions.ADD_TO_LIST(content))
+    }
+
     return (
       
         <div className='container'>
@@ -55,7 +58,7 @@ export default function Todo(){
             <h1>TODO LIST</h1><FontAwesomeIcon style={{color:"rgb(4, 110, 124);"}}  size='2x' icon={faCircleCheck} bounce />
           </div>
           <div className='list'>
-            <form onSubmit={(e) => {  e.preventDefault(); dispatch(Actions.todoActions.ADD_TO_LIST(content))}}>
+            <form onSubmit={sub}>
               <div className='d-flex justify-content-between'>
                 <div>
                   <input className={style.input_first}  value={content} onChange={(e) => dispatch(Actions.todoActions.ADD_TO_CONTENT(e.target.value))}></input>  

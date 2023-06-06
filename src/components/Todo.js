@@ -27,7 +27,7 @@ export default function Todo(){
       if (check.allcheck) 
         setSelectedItems([]);
       else 
-        setSelectedItems([...list]); 
+        setSelectedItems([...list.filter((item) => item.includes(filtcontent))]); 
       setCheck({...check,allcheck:!check.allcheck});
     }
 

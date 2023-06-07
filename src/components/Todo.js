@@ -10,7 +10,7 @@ export default function Todo(){
     const [selectedItems,setSelectedItems] = useState([]);
     const [check,setCheck] = useState({checked:false,allcheck:false });
     const dispatch = useDispatch();
-    const {content, filtcontent, list} = useSelector(state => state.todoReducer,shallowEqual);
+    const {content, filtcontent, list} = useSelector(state => state.todoReducer,shallowEqual); // Note: Here do not forget to use shallowEqual. Otherwise, your component will rerender on every useSelector() call.
     const buttonText = check.checked ? "Opt Out" : "Opt In";
 
     const handleCheck = (el) => {

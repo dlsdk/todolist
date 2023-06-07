@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import Actions from '../redux/actions';
 import style from "./modulecss/Todo.module.css"
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
@@ -10,12 +10,9 @@ export default function Todo(){
     const [selectedItems,setSelectedItems] = useState([]);
     const [check,setCheck] = useState({checked:false,allcheck:false });
     const dispatch = useDispatch();
-    const content = useSelector(state => state.todoReducer.content);
-    const filtcontent = useSelector(state=> state.todoReducer.filtcontent);
-    const list = useSelector(state=> state.todoReducer.list);
+    const {content, filtcontent, list} = useSelector(state => state.todoReducer,shallowEqual);
     const buttonText = check.checked ? "Opt Out" : "Opt In";
-  
-  
+
     const handleCheck = (el) => {
       if (selectedItems.includes(el))
         setSelectedItems(selectedItems.filter((item) => item !== el))
